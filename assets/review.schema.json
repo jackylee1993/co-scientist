@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Co-Scientist Review",
+  "type": "object",
+  "required": ["hypothesis_id", "review_type", "verdict", "scores"],
+  "properties": {
+    "hypothesis_id": {"type": "string"},
+    "review_type": {"enum": ["triage", "full", "deep", "observation", "simulation", "redteam", "calibration", "human"]},
+    "verdict": {"enum": ["pass", "revise", "reject", "abstain"]},
+    "scores": {
+      "type": "object",
+      "properties": {
+        "correctness": {"type": "number", "minimum": 1, "maximum": 10},
+        "novelty": {"type": "number", "minimum": 1, "maximum": 10},
+        "testability": {"type": "number", "minimum": 1, "maximum": 10},
+        "impact": {"type": "number", "minimum": 1, "maximum": 10},
+        "feasibility": {"type": "number", "minimum": 1, "maximum": 10},
+        "grounding": {"type": "number", "minimum": 1, "maximum": 10},
+        "safety": {"type": "number", "minimum": 1, "maximum": 10}
+      }
+    },
+    "strengths": {"type": "array", "items": {"type": "string"}},
+    "weaknesses": {"type": "array", "items": {"type": "string"}},
+    "fatal_flaws": {"type": "array", "items": {"type": "string"}},
+    "assumption_checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "assumption": {"type": "string"},
+          "load_bearing": {"type": "boolean"},
+          "status": {"enum": ["supported", "contradicted", "uncertain"]},
+          "evidence": {"type": "string"},
+          "if_wrong": {"type": "string"}
+        }
+      }
+    },
+    "novelty_check": {
+      "type": "object",
+      "properties": {
+        "closest_work": {"type": "string"},
+        "delta": {"type": "string"},
+        "is_novel": {"type": "boolean"},
+        "is_exact_replica": {"type": "boolean"},
+        "confidence": {"type": "number", "minimum": 0, "maximum": 1}
+      }
+    },
+    "citation_flags": {"type": "array", "items": {"type": "object"}},
+    "recommended_actions": {"type": "array", "items": {"type": "string"}},
+    "confidence": {"type": "number", "minimum": 0, "maximum": 1}
+  }
+}

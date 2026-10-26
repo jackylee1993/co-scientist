@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "outcomes": [
+    {
+      "hypothesis_id": "H001",
+      "status": "supported",
+      "source": "2-week pilot",
+      "metric": "anammox contribution",
+      "value": "+18%",
+      "note": "合成示例：仅演示格式，不是真实实验结果。"
+    },
+    {
+      "hypothesis_id": "H002",
+      "status": "refuted",
+      "source": "qPCR time series",
+      "metric": "nosZ recovery",
+      "value": "no difference",
+      "note": "合成示例：仅演示格式，不是真实实验结果。"
+    },
+    {
+      "hypothesis_id": "H003",
+      "status": "inconclusive",
+      "source": "expert review",
+      "note": "合成示例：证据不足以判断。"
+    }
+  ]
+}

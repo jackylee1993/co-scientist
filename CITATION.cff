@@ -1,0 +1,37 @@
+cff-version: 1.2.0
+message: "If you use this skill, please cite the Co-Scientist paper and this repository."
+title: "Co-Scientist Skill for Claude Code"
+abstract: "A file-driven, auditable implementation of the Co-Scientist hypothesis-tournament architecture for Claude Code, with a cross-run recursive self-improvement (RSI) layer."
+authors:
+  - name: "Co-Scientist Skill contributors"
+version: 1.1.0
+date-released: 2026-10-26
+license: MIT
+references:
+  - type: article
+    title: "Accelerating scientific discovery with Co-Scientist"
+    authors:
+      - family-names: Gottweis
+        given-names: Juraj
+      - family-names: Weng
+        given-names: Wei-Hung
+      - family-names: Daryin
+        given-names: Alexander
+      - family-names: Tu
+        given-names: Tao
+      - family-names: Sirkovic
+        given-names: Petar
+      - family-names: Myaskovsky
+        given-names: Artiom
+      - family-names: Glowaty
+        given-names: Grzegorz
+      - family-names: Weissenberger
+        given-names: Felix
+      - family-names: Orlandi
+        given-names: Alessio
+    journal: Nature
+    volume: 655
+    start: 487
+    end: 496
+    year: 2026
+    doi: 10.1038/s41586-026-10644-y

@@ -1,0 +1,111 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Co-Scientist Hypothesis",
+  "type": "object",
+  "required": ["title", "claim", "predictions", "testability"],
+  "properties": {
+    "id": {"type": "string"},
+    "title": {"type": "string", "minLength": 3},
+    "claim": {"type": "string", "minLength": 10},
+    "summary": {"type": "string"},
+    "mechanism": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "predictions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "if_true": {"type": "string"},
+          "if_false": {"type": "string"},
+          "observation": {"type": "string"}
+        }
+      }
+    },
+    "testability": {
+      "type": "object",
+      "required": ["minimal_experiment"],
+      "properties": {
+        "minimal_experiment": {"type": "string"},
+        "data_needed": {"type": "string"},
+        "controls": {"type": "string"},
+        "endpoint": {"type": "string"},
+        "time": {"type": "string"},
+        "statistics": {"type": "string"},
+        "failure_modes": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "novelty": {
+      "type": "object",
+      "properties": {
+        "score": {"type": "number", "minimum": 1, "maximum": 10},
+        "closest_prior_work": {"type": "string"},
+        "delta": {"type": "string"},
+        "is_exact_replica": {"type": "boolean"}
+      }
+    },
+    "impact": {
+      "type": "object",
+      "properties": {
+        "score": {"type": "number", "minimum": 1, "maximum": 10},
+        "reason": {"type": "string"}
+      }
+    },
+    "feasibility": {
+      "type": "object",
+      "properties": {
+        "score": {"type": "number", "minimum": 1, "maximum": 10},
+        "blockers": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "assumptions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "text": {"type": "string"},
+          "load_bearing": {"type": "boolean"},
+          "status": {"enum": ["supported", "uncertain", "untested", "contradicted"]},
+          "evidence": {"type": "string"}
+        }
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "source": {"type": "string"},
+          "doi": {"type": "string"},
+          "url": {"type": "string"},
+          "supports": {"enum": ["for", "against", "mixed", "background", "unknown"]},
+          "quote": {"type": "string"},
+          "verified": {"type": "boolean"}
+        }
+      }
+    },
+    "risks": {"type": "array", "items": {"type": "string"}},
+    "keywords": {"type": "array", "items": {"type": "string"}},
+    "safety": {
+      "type": "object",
+      "properties": {
+        "level": {"enum": ["low", "medium", "high"]},
+        "notes": {"type": "string"}
+      }
+    },
+    "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+    "status": {"enum": ["active", "needs_revision", "rejected", "archived", "merged"]},
+    "cluster": {"type": "string"},
+    "provenance": {
+      "type": "object",
+      "properties": {
+        "agent": {"type": "string"},
+        "strategy": {"type": "string"},
+        "parent_ids": {"type": "array", "items": {"type": "string"}},
+        "round": {"type": "integer"},
+        "changes": {"type": "array", "items": {"type": "string"}},
+        "why_better": {"type": "string"},
+        "preserved": {"type": "array", "items": {"type": "string"}}
+      }
+    }
+  }
+}
